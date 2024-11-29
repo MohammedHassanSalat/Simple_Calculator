@@ -1,56 +1,52 @@
 <div class="min-w-screen min-h-screen bg-violet-700
-          flex justify-center items-center px-5 py-5">
+          flex justify-center items-center p-5">
   <!-- calculator card -->
-  <div class="w-full rounded-xl shadow-2x relative overflow-hidden" style="max-width: 400px;">
+  <div class="w-full max-w-sm rounded-xl shadow-2x relative overflow-hidden">
     <!-- head -->
-    <h1 class="font-bold text-3xl text-white text-center py-10">Simple Calculator</h1>
+    <h1 class="font-bold text-3xl text-white text-center py-10 bg-gradient-to-br from-violet-200 to-violet-600">Simple Calculator</h1>
     <!-- end head -->
 
     <!-- screen -->
-    <div class="w-full h-28 bg-gradient-to-r from-violet-100 to-violet-400">
-      <p class="text-right px-5 py-2 text-xl text-white">+</p>
-      <p class="text-end px-7 py-2 text-[35px] text-white">100</p>
+    <div class="w-full font-thin px-5 py-9 h-28 text-right text-white bg-gradient-to-r from-violet-100 to-violet-400">
+      <p class="text-xl opacity-75">{{screenFunc}}</p>
+      <p class="text-4xl">{{screenValue | number}}</p>
     </div>
     <!-- end screen -->
 
     <!-- calculator body -->
-    <div class="px-5 py-5 bg-gradient-to-br from-violet-200 to-violet-600 grid gap-y-2">
-      <!-- 1 row -->
-      <div class="grid grid-cols-4 gap-x-2 h-10 text-white">
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg col-span-2">C</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">%</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">/</button>
+    <div class="p-5 bg-gradient-to-br from-violet-200 to-violet-600 grid gap-3">
+      <!-- Button Row -->
+      <div class="grid grid-cols-4 gap-3">
+        <button class="btn col-span-2" (click)="onClickValue('c','function')">C</button>
+        <button class="btn" (click)="onClickValue('%','function')">%</button>
+        <button class="btn" (click)="onClickValue('/','function')">/</button>
       </div>
 
-      <!-- 2 row -->
-      <div class="grid grid-cols-4 gap-x-2 h-10 text-white">
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">7</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">8</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">9</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">*</button>
+      <div class="grid grid-cols-4 gap-3">
+        <button class="btn" (click)="onClickValue('7','number')">7</button>
+        <button class="btn" (click)="onClickValue('8','number')">8</button>
+        <button class="btn" (click)="onClickValue('9','number')">9</button>
+        <button class="btn" (click)="onClickValue('x','function')">x</button>
       </div>
 
-      <!-- 3 row -->
-      <div class="grid grid-cols-4 gap-x-2 h-10 text-white">
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">4</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">5</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">6</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">-</button>
+      <div class="grid grid-cols-4 gap-3">
+        <button class="btn" (click)="onClickValue('4','number')">4</button>
+        <button class="btn" (click)="onClickValue('5','number')">5</button>
+        <button class="btn" (click)="onClickValue('6','number')">6</button>
+        <button class="btn" (click)="onClickValue('-','function')">-</button>
       </div>
 
-      <!-- 4 row -->
-      <div class="grid grid-cols-4 gap-x-2 h-10 text-white">
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">1</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">2</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">4</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">+</button>
+      <div class="grid grid-cols-4 gap-3">
+        <button class="btn" (click)="onClickValue('1','number')">1</button>
+        <button class="btn" (click)="onClickValue('2','number')">2</button>
+        <button class="btn" (click)="onClickValue('3','number')">3</button>
+        <button class="btn" (click)="onClickValue('+','function')">+</button>
       </div>
 
-      <!-- 5 row -->
-      <div class="grid grid-cols-4 gap-x-2 h-10 text-white">
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">0</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg">.</button>
-        <button class="bg-gradient-to-r from-violet-400 to-violet-600 grid justify-center items-center rounded-lg col-span-2">=</button>
+      <div class="grid grid-cols-4 gap-3">
+        <button class="btn" (click)="onClickValue('0','number')">0</button>
+        <button class="btn" (click)="onClickValue('.','number')">.</button>
+        <button class="btn col-span-2" (click)="onClickValue('=','function')">=</button>
       </div>
     </div>
     <!-- end calculator body -->

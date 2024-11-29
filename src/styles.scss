@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss/base";
-@import "tailwindcss/utilities";
-@import "tailwindcss/components";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.btn {
+    @apply bg-gradient-to-r from-violet-400 to-violet-600 text-white font-semibold rounded-lg h-12 flex justify-center items-center transition transform hover:scale-105 hover:from-violet-500 hover:to-violet-700 shadow-md;
+}
